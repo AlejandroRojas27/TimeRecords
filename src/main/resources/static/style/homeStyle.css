@@ -1,0 +1,26 @@
+#watch{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid slategray;
+  color: slategray;
+  font-size: 10vw;
+}
+
+.conteiner1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid slategray;
+    width: fit-content;
+    color: #808788;
+    padding: 5px;
+    font-size: 3vw; 
+    border-radius: 7px;
+    margin-left: 100px;
+    margin-top: 20px;
+    text-decoration:none;
+    transition: background-color 0.5s;
+  }
+
+.conteiner1:hover{background-color: #808788; color: #f4f8f4;}

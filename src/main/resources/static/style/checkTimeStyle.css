@@ -1,0 +1,48 @@
+#watch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid slategray;
+    color: slategray;
+    font-size: 10vw;
+}
+
+.cont1 {
+    display: flex;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    flex-direction: column;
+    border: 5px solid slategray;
+    font-size: 20px;
+}
+
+.cont1 input {
+    width: 90%;
+    height: 30px;
+    margin: 0.5rem;
+}
+
+.cont2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contB {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 2px solid slategray;
+    width: fit-content;
+    color: black;
+    padding: 5px;
+    
+    border-radius: 7px;
+    text-decoration: none;
+    transition: background-color 0.5s;
+}
+
+.contB:hover {
+    background-color: #808788;
+    color: #f4f8f4;
+}
