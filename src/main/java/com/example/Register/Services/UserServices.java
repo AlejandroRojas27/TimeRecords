@@ -100,4 +100,10 @@ public class UserServices implements UserRepository {
         return entityManager.createQuery(query).setParameter("credential", credential).getResultList();
     }
 
+    @Override
+    public List<UserModel> findUserByCurp(String curp){
+        String query = "FROM UserModel WHERE curp = :curp";
+        return entityManager.createQuery(query).setParameter("curp", curp).getResultList();
+    }
+
 }

@@ -17,6 +17,7 @@ public interface UserRepository {
     void deleteUser(Long id);
 
     UserModel findUserByIdentifications(UserModel user);
+    List<UserModel> findUserByCurp(String curp);
 
     List<UserModel> findUserByCredential(String email);
 

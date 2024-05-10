@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <!--Icon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+
+    <title>Administrador</title>
+
+    <!--Styles-->
+    <link rel="stylesheet" href="style/bodyStyle.css" type="text/css">
+    <link rel="stylesheet" href="style/adminStyles.css" type="text/css">
+
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
 </head>
+
 <body>
-    
+    <h1 class="title">
+        <div style="padding: 10px; float: left; width: 45%; text-align: center;">
+            Bienvenido
+        </div>
+        <div style="padding: 10px; float: right; width: 45%; text-align: center;" id="watch"></div>
+    </h1>
+
+    <div>
+        <p>Registrar usuario</p>
+        <form id="contF">
+            <div>
+                <p>Nombre(s): <input type="text" id="txtFirstName" placeholder="Nombre(s)"></p>
+            </div>
+            <div>
+                <p>Apellidos: <input type="text" id="txtLastName" placeholder="Apellidos"></p>
+            </div>
+            <div>
+                <p>Telefono: <input type="tel" id="numCellphone"></p>
+            </div>
+            <div>
+                <p>Telefono de emergencia <input type="tel" id="numSosPhone"></p>
+            </div>
+            <div>
+                <p>CURP: <input type="text" id="txtCURP" placeholder="CURP"></p>
+            </div>
+            <div>
+                <p>Contraseña: <input type="password" id="txtPassword" placeholder="Contraseña"></p>
+            </div>
+            <div>
+                <p>Jerarquia: <input type="number" id="numHierarchy" min="1" max="100" step="1"></p>
+            </div>
+            <div>
+                <a href="#" onclick="register()">Salvar registro</a>
+            </div>
+
+
+        </form>
+    </div>
+
+    <hr>
+
+    <h2>Lista de usuarios registrados</h2>
+
+    <table id="users">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre completo</th>
+                <th>CURP</th>
+                <th>Credencial</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+
+
+    <hr>
+
+    <div>Revisar registros segun credencial</div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/watchScript.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/loadUsers.js"></script>
 </body>
+
 </html>

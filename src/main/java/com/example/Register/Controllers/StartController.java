@@ -52,4 +52,9 @@ public class StartController {
 
     }
 
+    @RequestMapping(value = "api/userByCurp/{curp}", method = RequestMethod.GET)
+    public List<UserModel> findUserByCurp(@PathVariable String curp){
+       return userServices.findUserByCurp(curp);
+    }
+
 }

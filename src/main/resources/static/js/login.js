@@ -20,9 +20,9 @@ async function login(){
         },
     })
 
-    const listOfEmail = await findByCredential.json()
+    const listOfCredential = await findByCredential.json()
 
-    if(listOfEmail.length == 0){
+    if(listOfCredential.length == 0){
         alert('Usuario no registrado')
     }
 
