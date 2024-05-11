@@ -34,6 +34,7 @@ public class UserServices implements UserRepository {
     @Override
     public void updateUser(UserModel user) {entityManager.merge(user);}
 
+    //TO CREATE A RANDOM NUMBER WITH 3 CHARACTERS AND CONCAT WITH THE FIRST 4 CHARACTERS OF CURP, THE CODE CHECK IF THE CREDENTIAL EXIST IN THE DATABASE, IF EXIST IT GENERATE ANOTHER NUMBER
     public String updateCredential(UserModel user){
         int num1 = (int) (Math.random() * 10);
         int num2= (int) (Math.random() * 10);

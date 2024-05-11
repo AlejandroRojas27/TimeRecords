@@ -22,5 +22,4 @@ public interface UserRepository {
     List<UserModel> findUserByCurp(String curp);
 
     List<UserModel> findUserByCredential(String email);
-
 }

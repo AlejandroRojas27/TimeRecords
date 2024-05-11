@@ -36,6 +36,8 @@ public class StartController {
 
     @RequestMapping(value = "api/userById/{id}", method = RequestMethod.GET)
     public String findUserById(@PathVariable Long id){
+
+       //Use ObjectMapper to write a JSON like a String (IT IS NOT A PARSE) from a ObjectModel, we can work with this String in JavaScript as a JSON
         ObjectMapper objectMapper = new ObjectMapper();
         String userJson = "";
         try {

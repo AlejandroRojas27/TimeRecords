@@ -32,6 +32,7 @@ public class UserModel {
     @Column(name = "password")
     private String password;
 
+    //Use hierarchy to give different services
     @Column(name = "hierarchy")
     private Long hierarchy;
 
