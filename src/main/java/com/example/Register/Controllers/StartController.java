@@ -2,6 +2,8 @@ package com.example.Register.Controllers;
 
 import com.example.Register.Model.UserModel;
 import com.example.Register.Services.UserServices;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import de.mkammerer.argon2.Argon2;
 import de.mkammerer.argon2.Argon2Factory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,34 +29,37 @@ public class StartController {
         String hashedPassword = argon2.hash(1,1024,1,user.getPassword());
 
         user.setPassword(hashedPassword);
-        userServices.saveUser(user);
-    }
+        userServices.saveUser(user);}
+
+    @RequestMapping(value = "api/updateUser", method = RequestMethod.POST)
+    public void updateUser(@RequestBody UserModel user){userServices.updateUser(user);}
 
     @RequestMapping(value = "api/userById/{id}", method = RequestMethod.GET)
-    public UserModel findUserById(@PathVariable Long id){
-       return userServices.findUserById(id);
-    }
+    public String findUserById(@PathVariable Long id){
+        ObjectMapper objectMapper = new ObjectMapper();
+        String userJson = "";
+        try {
+            userJson = objectMapper.writeValueAsString(userServices.findUserById(id));
+        } catch (JsonProcessingException e) {
+            userJson = "ERROR";
+            throw new RuntimeException(e);
+        }
+
+        return userJson;}
 
     @RequestMapping(value = "api/userByCredential/{credential}", method = RequestMethod.GET)
-    public List<UserModel> findUserByCredential(@PathVariable String credential){
-       return userServices.findUserByCredential(credential);
-    }
+    public List<UserModel> findUserByCredential(@PathVariable String credential){return userServices.findUserByCredential(credential);}
 
     @RequestMapping(value = "api/deleteUser/{id}", method = RequestMethod.DELETE)
     public String deleteUser(@PathVariable Long id){
-
        try {
            this.userServices.deleteUser(id);
            return "Se elimino con exito el usuario con id " + id;
        }catch (Exception err){
            return "No pudo eliminar el usuario con id" + id;
-       }
-
-    }
+       }}
 
     @RequestMapping(value = "api/userByCurp/{curp}", method = RequestMethod.GET)
-    public List<UserModel> findUserByCurp(@PathVariable String curp){
-       return userServices.findUserByCurp(curp);
-    }
+    public List<UserModel> findUserByCurp(@PathVariable String curp){return userServices.findUserByCurp(curp);}
 
 }

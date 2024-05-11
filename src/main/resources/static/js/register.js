@@ -23,12 +23,12 @@ async function userAlreadyExist() {
 
     if(listOfCurp.length >= 1){
         alert('Usuario ya registrado')
-        document.getElementById("contF").reset();
+        document.getElementById("contRegister").reset();
         
     }else{
         saveInDataBase();
         alert('Usuario registrado con exito')
-        document.getElementById("contF").reset();
+        document.getElementById("contRegister").reset();
         location.reload();
     }
 
@@ -44,6 +44,7 @@ async function saveInDataBase(){
     data.emergencyCellphone = document.getElementById('numSosPhone').value;
     data.curp = document.getElementById('txtCURP').value;
     data.password = document.getElementById('txtPassword').value;
+    data.hierarchy = document.getElementById('numHierarchy').value;
 
     const registerUser = fetch('api/register', {
         method: 'POST',

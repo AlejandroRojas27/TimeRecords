@@ -32,7 +32,10 @@ public class UserModel {
     @Column(name = "password")
     private String password;
 
-    //Getters & Setters
+    @Column(name = "hierarchy")
+    private Long hierarchy;
+
+//Getters & Setters
 
     public Long getId() {
         return id;
@@ -96,5 +99,13 @@ public class UserModel {
 
     public void setCredential(String credential) {
         this.credential = credential;
+    }
+
+    public Long getHierarchy() {
+        return hierarchy;
+    }
+
+    public void setHierarchy(Long hierarchy) {
+        this.hierarchy = hierarchy;
     }
 }
