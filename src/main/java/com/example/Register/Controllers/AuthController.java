@@ -13,21 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AuthController {
 
+    //IMPLEMENTAR TOKEN
     @Autowired
     private UserRepository userRepository;
 
     @RequestMapping(value = "api/login", method = RequestMethod.POST)
-    public String login(@RequestBody UserModel user){
-
+    public boolean login(@RequestBody UserModel user){
         UserModel userLogged = userRepository.findUserByIdentifications(user);
-
-        if (userLogged != null){
-            return "Success";
-        }else {
-            return "FAIL";
-        }
-
+        return userLogged != null;
     }
+
+
 
 
 }
