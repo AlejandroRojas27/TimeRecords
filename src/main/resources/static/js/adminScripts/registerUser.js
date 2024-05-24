@@ -6,6 +6,7 @@ function register(){
     userAlreadyExist()
 }
 
+//REQUIRE AUTHORIZATION TOKEN
 //To check if the user already exist
 async function userAlreadyExist() {
 
@@ -34,6 +35,7 @@ async function userAlreadyExist() {
 
 }
 
+//REQUIRE AUTHORIZATION TOKEN
 //To register the email on database
 async function saveInDataBase(){
 
@@ -56,4 +58,3 @@ async function saveInDataBase(){
     })
 
 }
-

@@ -1,4 +1,4 @@
-#watch{
+#watch {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -7,21 +7,39 @@
   font-size: 10vw;
 }
 
-.conteiner1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid slategray;
-    width: fit-content;
-    color: #808788;
-    padding: 5px;
-    font-size: 3vw; 
-    border-radius: 7px;
-    margin-left: 100px;
-    margin-top: 20px;
-    text-decoration:none;
-    transition: background-color 0.5s;
-  }
+.conteiner1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid slategray;
+  width: fit-content;
+  color: #808788;
+  padding: 5px;
+  font-size: 3vw;
+  border-radius: 7px;
+  margin-left: 100px;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: background-color 0.5s;
+}
 
-.conteiner1:hover{background-color: #808788; color: #f4f8f4;}
+.conteiner1:hover {
+  background-color: #808788;
+  color: #f4f8f4;
+}
 
+.contButtonList {max-height: 3.4vh;}
+
+.contButton {
+  position: relative;
+  right: 10px;
+  bottom:1cqh;
+  background-color: #f4f8f4;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.contButton:hover {
+  box-shadow: -7px 7px 10px 3px rgba(0, 0, 0, 0.66);
+}

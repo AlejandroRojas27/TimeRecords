@@ -1,12 +1,12 @@
-$(document).ready(function (){});
+$(document).ready(function () { });
 
-async function login(){
+async function login() {
 
     let data = {};
     data.credential = document.getElementById('txtCredential').value;
     data.password = document.getElementById('txtPassword').value;
 
-    if(data.credential == ""){
+    if (data.credential == "") {
         alert("Ingresa credencial")
         return;
     }
@@ -22,10 +22,13 @@ async function login(){
 
     const listOfCredential = await findByCredential.json()
 
-    if(listOfCredential.length == 0){
+    if (listOfCredential.length == 0) {
         alert('Usuario no registrado')
+        location.reload();
+        return;
     }
 
+    /** To login */
     const request = await fetch('api/login', {
         method: 'POST',
         headers: {
@@ -35,17 +38,14 @@ async function login(){
         body: JSON.stringify(data)
     });
 
-    const response = await request.text();
+    const response = await request.json();
 
-    if(response != "FAIL"){
+    if (response) {
         alert("Tiempo registrado")
         window.location.href = 'home.html'
         //INCERTAR CODIGO PARA REGISTRAR TIEMPO
         return;
-    }else{
+    } else {
         alert("Credencial o contraseña erronea, intenta de nuevo")
     }
-
-
-
 }
