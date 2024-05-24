@@ -91,4 +91,15 @@ public class UserServices implements UserRepository {
         String query = "FROM UserModel WHERE curp = :curp";
         return entityManager.createQuery(query).setParameter("curp", curp).getResultList();}
 
+    @Override
+    public boolean isUserAdmin(String credential) {
+        String query = "FROM UserModel WHERE credential = :credential";
+
+       List<UserModel> resultList = entityManager.createQuery(query).setParameter("credential",credential).getResultList();
+
+       UserModel user = resultList.get(0);
+
+       if(user.getHierarchy() == 1L){return true;}else {return false;}
+    }
+
 }

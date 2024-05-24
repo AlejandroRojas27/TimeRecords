@@ -11,7 +11,7 @@ async function validUser() {
     //To check that the form is not empty
     if (data.credential == "" || data.password == "") {
         alert("Ingresa tu credencial y contraseña")
-        location.reload();
+        window.location.reload();
         return;
     }
 
@@ -25,7 +25,7 @@ async function validUser() {
 
     if (listOfCredential.length == 0) {
         alert('Usuario no registrado')
-        location.reload();
+        window.location.href = 'home.html';
         return;
     }
 
@@ -41,16 +41,16 @@ async function validUser() {
         alert("El usuario no tiene acceso a estos servicios");
         window.location.href = 'home.html';
     } else {
-        return data;
+        loginAdminAuth(data);
     }
 
 }
 
-//NECESITA NUEVO CONTROLLER QUE GENERE TOKEN
-async function loginAdminAuth() {
-    const data = await validUser();
+async function loginAdminAuth(data) {
+    
+    console.log(data);
 
-    const login = await fetch('api/login', {
+    const login = await fetch('api/authlogin', {
         method: 'POST',
         headers: getHeaders(),
         body: JSON.stringify(data)
@@ -60,8 +60,9 @@ async function loginAdminAuth() {
 
     if (response != "FAIL") {
     
-        const user = await getUser(data);
-        //Implementar JWT
+        localStorage.token = response;
+        window.location.href = 'admin.html'
+
         return;
     } else {
         alert("Credencial o contraseña erronea, intenta de nuevo")
