@@ -50,7 +50,7 @@ async function loginAdminAuth(data) {
     
     console.log(data);
 
-    const login = await fetch('api/authlogin', {
+    const login = await fetch('api/authLogin', {
         method: 'POST',
         headers: getHeaders(),
         body: JSON.stringify(data)

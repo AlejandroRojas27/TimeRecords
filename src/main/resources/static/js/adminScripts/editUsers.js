@@ -68,3 +68,11 @@ async function saveChanges(user) {
     alert('Cambios guardados')
     location.reload();
 }
+
+function getHeaders() {
+    return {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.token
+    };
+}

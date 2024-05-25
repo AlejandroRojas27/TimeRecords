@@ -44,7 +44,11 @@ async function loadUsers() {
 async function askForUsers() {
     const request = await fetch('api/users', {
         method: 'GET',
-        headers: getHeaders()
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': localStorage.token
+        },
     });
     return await request.json();
 }

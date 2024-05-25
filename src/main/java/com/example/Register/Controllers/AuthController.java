@@ -6,10 +6,7 @@ import com.example.Register.Repositories.UserRepository;
 
 import com.example.Register.Utils.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AuthController {
@@ -26,7 +23,7 @@ public class AuthController {
         return userLogged != null;
     }
 
-    @RequestMapping(value = "api/authlogin", method = RequestMethod.POST)
+    @RequestMapping(value = "api/authLogin", method = RequestMethod.POST)
     public String authLogin(@RequestBody UserModel user){
         UserModel userlogged = userRepository.findUserByIdentifications(user);
 
@@ -35,12 +32,9 @@ public class AuthController {
             return token;
         }
         return "FAIL";
-
     }
 
-    //crear mapping para autentificar token
-
-
-
+    @RequestMapping(value = "api/authToken")
+    public boolean tokenIsValid(@RequestHeader(value = "Authorization") String token){return jwtUtil.validateToken(token);}
 
 }
