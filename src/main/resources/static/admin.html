@@ -13,6 +13,7 @@
     <!--Styles-->
     <link rel="stylesheet" href="style/bodyStyle.css" type="text/css">
     <link rel="stylesheet" href="style/adminStyles.css" type="text/css">
+    <link rel="stylesheet" href="style/homeStyle.css" type="text/css">
 
     <!--FONTS-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +28,10 @@
         <div style="padding: 10px; float: left; width: 45%; text-align: center;">
             Bienvenido
         </div>
-        <div style="padding: 10px; float: right; width: 45%; text-align: center;" id="watch"></div>
+        <div style="padding: 10px; float: right; width: 50%; text-align: right;">
+            <button class="contButton" onclick="logOutAdmin()"><img class="contButtonList"
+                    src="assets/img/home.ico"></button>
+        </div>
     </h1>
 
     <div>
@@ -87,11 +91,11 @@
     <div>Revisar registros segun credencial</div>
 
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/watchScript.js"></script>
     <script src="js/adminScripts/authUser.js"></script>
     <script src="js/adminScripts/registerUser.js"></script>
     <script src="js/adminScripts/loadUsers.js"></script>
     <script src="js/adminScripts/editUsers.js"></script>
+    <script src="js/adminScripts/logOutAdmin.js"></script>
 </body>
 
 </html>
