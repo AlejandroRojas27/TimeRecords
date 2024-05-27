@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
     authToken();
 });
 
-async function authToken(){
-    
+async function authToken() {
+
     const request = await fetch('api/authToken', {
         headers: {
             'Accept': 'application/json',
@@ -14,9 +14,8 @@ async function authToken(){
 
     const response = await request.json();
 
-    if(!response){
+    if (!response) {
         alert('Usuario no permitido')
         window.location.href = 'home.html';
     }
-
 }

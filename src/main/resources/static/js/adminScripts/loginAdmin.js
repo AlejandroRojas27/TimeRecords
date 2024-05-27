@@ -47,8 +47,6 @@ async function validUser() {
 }
 
 async function loginAdminAuth(data) {
-    
-    console.log(data);
 
     const login = await fetch('api/authLogin', {
         method: 'POST',
@@ -59,7 +57,7 @@ async function loginAdminAuth(data) {
     const response = await login.text();
 
     if (response != "FAIL") {
-    
+
         localStorage.token = response;
         window.location.href = 'admin.html'
 

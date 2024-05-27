@@ -1,8 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
 })
 
-function register(){
+function register() {
     userAlreadyExist()
 }
 
@@ -22,11 +22,11 @@ async function userAlreadyExist() {
 
     const listOfCurp = await findByCurp.json();
 
-    if(listOfCurp.length >= 1){
+    if (listOfCurp.length >= 1) {
         alert('Usuario ya registrado')
         document.getElementById("contRegister").reset();
-        
-    }else{
+
+    } else {
         saveInDataBase();
         alert('Usuario registrado con exito')
         document.getElementById("contRegister").reset();
@@ -37,7 +37,7 @@ async function userAlreadyExist() {
 
 //REQUIRE AUTHORIZATION TOKEN
 //To register the email on database
-async function saveInDataBase(){
+async function saveInDataBase() {
 
     let data = {};
     data.firstName = document.getElementById('txtFirstName').value;
@@ -55,7 +55,7 @@ async function saveInDataBase(){
             'Content-Type': 'application/json',
             'Authorization': localStorage.token
         },
-        body: JSON.stringify(data), 
+        body: JSON.stringify(data),
     })
 
 }
