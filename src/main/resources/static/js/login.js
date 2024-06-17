@@ -41,11 +41,33 @@ async function login() {
     const response = await request.json();
 
     if (response) {
-        alert("Tiempo registrado")
-        window.location.href = 'home.html'
         //INCERTAR CODIGO PARA REGISTRAR TIEMPO
+        var time = document.getElementById('watch').innerText;
+
+        saveTime(data.credential, time);
+
+        alert("Tiempo registrado")
+        //window.location.href = 'home.html'
         return;
     } else {
         alert("Credencial o contraseña erronea, intenta de nuevo")
     }
+}
+
+/** To send info to back-end */
+async function saveTime(credential, time){
+
+    let info = {};
+    info.credential = credential;
+    info.time = time;
+
+    const response = await fetch('api/saveTime/in', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(info)
+    });
+  
 }
